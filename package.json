@@ -1,0 +1,21 @@
+{
+  "name": "gunboundjs",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@types/matter-js": "^0.17.7",
+    "typescript": "^4.5.4",
+    "vite": "^2.9.0"
+  },
+  "dependencies": {
+    "fp-ts": "^2.11.10",
+    "matter-js": "^0.18.0",
+    "matterjs": "^0.1.3",
+    "pixi.js": "^6.3.0"
+  }
+}
