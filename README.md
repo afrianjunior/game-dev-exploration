@@ -20,8 +20,12 @@ Download here [v0.0.1](https://github.com/afrianjunior/game-dev-exploration/rele
 
 ### Physics
 
-![/screenshots/movement.gif](/screenshots/physics.gif)
+![/screenshots/physics.gif](/screenshots/physics.gif)
 
 ### Aim
 
-![/screenshots/movement.gif](/screenshots/aim.gif)
+![/screenshots/aim.gif](/screenshots/aim.gif)
+
+### Projectile
+
+![/screenshots/projectile.gif](/screenshots/projectile.gif)

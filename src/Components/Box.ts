@@ -17,7 +17,7 @@ const Box = (x: number, y: number, w: number, h: number, isStatic?: boolean, fil
   engine.pixiEngine.ticker.add(() => {
     mesh.position.x = position.x
     mesh.position.y = position.y
-    mesh.rotation = body.angle
+    mesh.angle = body.angle
   })
 
   Matter.World.add(engine.world, [body])

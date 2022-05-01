@@ -10,29 +10,34 @@ export interface GameEngine {
 
 export const Stage = () => {
   window.PIXI = PIXI
+  const sceneContainer: HTMLCanvasElement = document.querySelector("#app") as HTMLCanvasElement
+  const canvasWidth = sceneContainer.offsetWidth;
+  const canvasHeight = sceneContainer.offsetHeight;
+
   const physicsEngine = Matter.Engine.create()
+  
   const pixiEngine = new PIXI.Application({
     backgroundAlpha: 0,
-    width: window.innerWidth,
-    height: window.innerHeight,
+    width: canvasWidth,
+    height: canvasHeight,
     antialias: true,
   })
+
   const physicsRender = Matter.Render.create({
     element: pixiEngine.view,
     engine: physicsEngine,
     options: {
-      width: window.innerWidth,
-      height: window.innerHeight,
+      width: canvasWidth,
+      height: canvasHeight,
       background: 'transparent',
-      wireframes: false,
-      showAngleIndicator: true
+      showAngleIndicator: false
     }
   })
  
   const world = physicsEngine.world
 
-  document.body.appendChild(pixiEngine.view)
-  console.log(pixiEngine.view)
+  sceneContainer.appendChild(pixiEngine.view)
+
   const gameEngine: GameEngine = {
     pixiEngine,
     physicsEngine,
@@ -43,10 +48,11 @@ export const Stage = () => {
 }
 
 export const Start = () => (gameEngine: GameEngine) => {
-  Matter.Render.lookAt(gameEngine.physicsRender, {
-      min: { x: 0, y: 0 },
-      max: { x: 800, y: 600 }
-  })
+  // Matter.Render.lookAt(gameEngine.physicsRender, {
+  //     min: { x: 0, y: 0 },
+  //     max: { x: 800, y: 600 }
+  // })
+  gameEngine.physicsEngine.gravity.y = 3
   Matter.Render.run(gameEngine.physicsRender)
   const runner = Matter.Runner.create();
   Matter.Runner.run(runner, gameEngine.physicsEngine)
